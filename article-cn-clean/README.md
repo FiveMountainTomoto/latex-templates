@@ -16,16 +16,18 @@
 
 ## 编译方法（需 XeLaTeX + BibTeX）
 
+所有中间产物和最终 PDF 都输出到 `out/` 文件夹，主目录保持干净。
+
 ```
-xelatex main
-bibtex main
-xelatex main
-xelatex main
+xelatex -output-directory=out main
+bibtex out/main
+xelatex -output-directory=out main
+xelatex -output-directory=out main
 ```
 
 或直接双击 `makefiles.bat`。
 
-编译完成后可用 `#delete-temp-files.bat` 清理 `.aux/.log/.synctex` 等临时文件。
+最终 PDF 位于 `out/main.pdf`。编译完成后可用 `#delete-temp-files.bat` 清理 `out/` 里的 `.aux/.log/.synctex` 等临时文件（保留 PDF）。
 
 ## 切换参考文献样式
 
